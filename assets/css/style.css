@@ -1,0 +1,129 @@
+:root {
+
+    --headerFooter-bg: #e0b4db; /* Example dark gray color */
+    --main-bg: #fff; /* Example white color */
+    --text-color: #000; /* Example black color */
+
+}
+
+body{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+    "header"
+    "main"
+    "footer"
+    ;
+
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: auto;
+    padding: 0;
+    width: 90%;
+
+}
+
+/*Header*/
+
+header{
+    grid-area: header;
+}
+
+header .container{
+    display: flex;
+    justify-content: center;
+    background-color: var(--headerFooter-bg);
+
+}
+
+header .container img{
+    width: 100px;
+    height: 100px;
+
+}
+
+header .container nav ul{
+    display: flex;
+    justify-content: space-around;
+    background-color: var(--headerFooter-bg);
+    list-style: none;
+    column-gap: 12px;
+
+}
+
+header .container nav ul a{
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+/*fin du header*/
+
+main{
+    grid-area: main;
+}
+
+.hero{
+
+    height: 30vh;
+    background-image: url(../image/hero.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    -webkit-text-stroke: rgb(218, 46, 143) 1px;
+
+    color: var(--text-color);
+}
+
+.recette-grid{
+    display: grid;
+    grid-template-columns: auto;
+    row-gap: 30px;
+    background-color: var(--main-bg);
+
+}
+
+.recette-grid .carte{
+    border: 1px black solid;
+    border-radius: 12px;
+    margin: 3px;
+}
+
+.recette-grid .carte img{
+   width: 100%;
+}
+/* Footer*/
+
+footer{
+    grid-area: footer;
+    background-color: var(--headerFooter-bg);
+}
+
+@media (min-width: 300px) and (max-width:700px) {
+    
+
+    .recette-grid{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (min-width: 700px) and (max-width:900px) {
+    
+
+    .recette-grid{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media (min-width: 900px) {
+    .recette-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        column-gap: 20px;
+    }
+
+    .recette-grid .carte img {
+        object-fit: cover;
+        height: 200px;
+    }
+}
